@@ -1,0 +1,83 @@
+﻿<div class="row clearfix" [@routerTransition]>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>运行模式:{{runMode}} --- 队列监控（PLC地址:{{plcIp}} --- 连接状态:{{conState}} --- 触发状态:{{readState}}）</h2>
+                <ul class="header-dropdown m-r--5">
+                    <li>
+                        <button mat-icon-button [matMenuTriggerFor]="headerMenu" class="header-dropdown-mat-icon-button">
+                            <mat-icon>more_vert</mat-icon>
+                        </button>
+                        <mat-menu #headerMenu="matMenu">
+                            <button mat-menu-item (click)="pageChangeSub(1)">
+                                <mat-icon>refresh</mat-icon>
+                                <span>刷新</span>
+                            </button>
+                            <button mat-menu-item (click)="overscan()">
+                                <mat-icon>settings_overscan</mat-icon>
+                                <span>{{scanBool ? '退出全屏' : '全屏'}}</span>
+                            </button>
+                        </mat-menu>
+                    </li>
+                </ul>
+            </div>
+            <div class="body table-responsive">
+                <div class="row clearfix">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <muzey-select-controls [placeholder]="l('区域')" [(bindVal)]="reqModel.area" [options]="aOps" (bindValChange)="aChange($event)"></muzey-select-controls>
+                            </div>
+                            <div class="col-md-3">
+                                <muzey-select-controls [placeholder]="l('队列类型')" [(bindVal)]="reqModel.rcType" [options]="rtOps" (bindValChange)="rtChange($event)"></muzey-select-controls>
+                            </div>
+                            <div class="col-md-12 text-right p-r-25">
+                                <muzey-button-controls [txt]="'虚拟队列同步'" [icon]="'forum'" [color]="'#C71585'" (click)="CopyFictitious()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'模拟排产'" [icon]="'move_to_inbox'" [color]="'#CD3333'" (click)="Invented()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'预排设置'" [icon]="'settings'" [color]="'#6495ED'" (click)="Preinstall()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'车位信息更新'" [icon]="'g_translate'" [color]="'#FFBB00'" (click)="PlaceEdit()"></muzey-button-controls>
+                                <muzey-button-controls *ngIf="selectedVIN != ''" [txt]="'特征数据'" [icon]="'fingerprint'" [color]="'#8BC34A'" (click)="getFData()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'模式切换'" [icon]="'multiline_chart'" [color]="'#CD1076'" (click)="changeMode()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'清除顺序号'" [icon]="'restore_from_trash'" [color]="'#FF6347'" (click)="cleanSeq()"></muzey-button-controls>
+                                <muzey-button-controls [txt]="'出车(虚拟队列)'" [icon]="'commute'" [color]="'#7AC5CD'" (click)="OutCar()" *ngIf="reqModel.rcType=='RC_CacheInvented'"></muzey-button-controls>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <table class="table table-hover text-nowrap" [busy]="isTableLoading">
+                    <thead style="color:#ffffff;background:#7CCD7C">
+                        <tr>
+                            <th style="text-align: center;">车道/车位</th>
+                            <th *ngFor="let col of cols" style="text-align: center;">{{ col.label }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="
+                let data of (datas
+                  | paginate
+                    : {
+                        id: id,
+                        itemsPerPage: pageSize,
+                        currentPage: curPageNum,
+                        totalItems: totalCount
+                      }); let i = index
+              ">
+                            <td [ngStyle]="{ background:data.DjRoadState=='1' ? '#87CEFF' : '#EAEAEA' }" class="rc-carbord">
+                                (出口)<mat-icon style="font-size:15px" (dblclick)="lockClick(i+1,1,data.OutRoadState)">{{data.OutRoadState}}</mat-icon>
+                                {{ i+1 }}道
+                                <mat-icon style="font-size:15px" (dblclick)="lockClick(i+1,0,data.InRoadState)">{{data.InRoadState}}</mat-icon>(入口)
+                            </td>
+                            <td *ngFor="let col of cols let j = index" class="rc-place rc-carbord"
+                                [ngClass]="{'select-row': selectedRowNum==i && selectedColNum==j
+                                ,'rc-car': getDataValue(data,col) != '' && getDataState(data,col) == '0'
+                                ,'rc-dj': getDataValue(data,col) != '' && getDataState(data,col) == '1'
+                                }" (click)="onColClick(i,j,data)">
+                                {{getDataValue(data,col) != '' ? '(' + getDataSeq(data,col) + ')' : ''}}{{ getDataValue(data,col) }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

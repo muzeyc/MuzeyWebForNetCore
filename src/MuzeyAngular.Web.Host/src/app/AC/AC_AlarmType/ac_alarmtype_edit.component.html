@@ -1,0 +1,10 @@
+﻿<muzey-pageedit-controls [title]="'报警类型编辑'" [width]="'500'" [height]="'300'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'报警类型编码'" [(bindVal)]="reqModel.saveData.AlarmTypeCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'报警类型名称'" [(bindVal)]="reqModel.saveData.AlarmTypeName"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'报警类型描述'" [(bindVal)]="reqModel.saveData.AlarmTypeDesc"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'备注/预留'" [(bindVal)]="reqModel.saveData.Remarks"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

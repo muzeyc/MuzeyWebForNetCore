@@ -1,0 +1,14 @@
+﻿<muzey-pageedit-controls [title]="'冲压零件信息编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-input-controls [placeholder]="'模具编号'" [(bindVal)]="reqModel.saveData.MouldCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'左零件编号'" [(bindVal)]="reqModel.saveData.LeftPartCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'左零件名称'" [(bindVal)]="reqModel.saveData.LeftPartName"></muzey-input-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-input-controls [placeholder]="'项目名称'" [(bindVal)]="reqModel.saveData.ProjectName"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'右零件编号'" [(bindVal)]="reqModel.saveData.RightPartCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'右零件名称'" [(bindVal)]="reqModel.saveData.RightPartName"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

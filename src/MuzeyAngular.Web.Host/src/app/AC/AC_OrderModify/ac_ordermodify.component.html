@@ -1,0 +1,22 @@
+﻿<muzey-pagetable-controls [title]="'拉入拉出指令管理'">
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('订单号')" [(bindVal)]="reqModel.OrderNum"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('VIN')" [(bindVal)]="reqModel.vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-4">
+                <muzey-date-controls [sTime]="sTime" [eTime]="eTime" (onChange)="dateChange($event)"></muzey-date-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

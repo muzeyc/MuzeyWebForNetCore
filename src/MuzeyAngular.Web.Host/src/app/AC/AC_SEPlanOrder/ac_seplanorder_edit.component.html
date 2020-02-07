@@ -1,0 +1,8 @@
+﻿<muzey-pageedit-controls [title]="'订单插单'" [width]="'500'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-date-controls [captionS]="'计划日期'" [StyleType]="'Date'" [(sTime)]="reqModel.saveData.PlanDate"></muzey-date-controls>
+            <muzey-input-controls [placeholder]="'上线顺序号'" [(bindVal)]="reqModel.saveData.SEOnSeq"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

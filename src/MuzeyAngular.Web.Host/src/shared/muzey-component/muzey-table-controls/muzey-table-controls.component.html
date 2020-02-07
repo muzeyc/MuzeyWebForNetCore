@@ -1,0 +1,28 @@
+﻿<table class="table table-hover text-nowrap" [busy]="isTableLoading">
+    <thead style="color:#ffffff;background:#7CCD7C">
+        <tr>
+            <th>序号</th>
+            <th *ngFor="let col of cols">{{ col.label }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="
+                let data of (datas
+                  | paginate
+                    : {
+                        id: id,
+                        itemsPerPage: pageSize,
+                        currentPage: curPageNum,
+                        totalItems: totalCount
+                      }); let i = index
+              " [ngClass]="{'select-row': selectedIndex==i}" (click)="onRowClick(i,data)">
+            <td>{{ i+1 }}</td>
+            <td *ngFor="let col of cols">{{ getDataValue(data,col) }}</td>
+        </tr>
+    </tbody>
+</table>
+<div>共{{totalCount}}条数据</div>
+<div class="abp-pagination-controls-wrapper" *ngIf="totalCount > pageSize">
+    <abp-pagination-controls (pageChange)="pageChangeSub($event)" id="{{id}}">
+    </abp-pagination-controls>
+</div>

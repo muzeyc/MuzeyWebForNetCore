@@ -1,0 +1,14 @@
+﻿<muzey-pageedit-controls [title]="title" [width]="'600'" [height]="'600'" (onCloseClick)="close(false)" (onSaveClick)="save()" [SaveShow]="false">
+    <div class="row-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <muzey-input-controls [placeholder]="'VIN'" [(bindVal)]="vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-6 text-right">
+                <muzey-button-controls [txt]="'入道排产'" [icon]="'loupe'" [color]="'#6B8E23'" (click)="inroadpc(vin)"></muzey-button-controls>
+                <muzey-button-controls [txt]="'出道排产'" [icon]="'move_to_inbox'" [color]="'#CD3333'" (click)="invented()"></muzey-button-controls>
+            </div>
+        </div>
+        <muzey-table-controls #mtc [pageSize]="100" [cols]="cols" [datas]="datas" [totalCount]="totalCount" [id]="'child'" (pageChange)="getDataPage($event)"></muzey-table-controls>
+    </div>
+</muzey-pageedit-controls>

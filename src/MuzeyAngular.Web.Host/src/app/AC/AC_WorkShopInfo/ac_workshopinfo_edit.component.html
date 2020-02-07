@@ -1,0 +1,8 @@
+﻿<muzey-pageedit-controls [title]="'车间编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'车间编码'" [(bindVal)]="reqModel.saveData.WorkShopCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'车间名称'" [(bindVal)]="reqModel.saveData.WorkShopName"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

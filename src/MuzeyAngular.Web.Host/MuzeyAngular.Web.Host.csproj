@@ -1,0 +1,130 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+    <AssemblyName>MuzeyAngular.Web.Host</AssemblyName>
+    <OutputType>Exe</OutputType>
+    <PackageId>MuzeyAngular.Web.Host</PackageId>
+    <UserSecretsId>AbpCompanyName-MuzeyAngular-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\swagger\ui\index.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Update="wwwroot\**\*">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MuzeyAngular.Web.Core\MuzeyAngular.Web.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Castle.LoggingFacility.MsLogging" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Abp.Castle.Log4Net" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="wwwroot\swagger\ui\index.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="dist\**" />
+    <Compile Remove="external_libs\**" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="dist\**" />
+    <EmbeddedResource Remove="external_libs\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="dist\**" />
+    <None Remove="external_libs\**" />
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="src\shared\muzey-component\muzey-button-controls\muzey-button-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-button-controls\muzey-button-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-date-controls\muzey-date-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-date-controls\muzey-date-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-datetime-controls\muzey-datetime-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-datetime-controls\muzey-datetime-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-down-controls\muzey-down-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-down-controls\muzey-down-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-input-controls\muzey-input-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-input-controls\muzey-input-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-pageedit-controls\muzey-pageedit-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-pageedit-controls\muzey-pageedit-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-pagetable-controls\muzey-pagetable-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-pagetable-controls\muzey-pagetable-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-select-controls\muzey-select-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-select-controls\muzey-select-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-table-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-table-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-time-controls\muzey-time-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-time-controls\muzey-time-controls.component.ts" />
+    <None Remove="src\shared\muzey-component\muzey-upload-controls\muzey-upload-controls.component.html" />
+    <None Remove="src\shared\muzey-component\muzey-upload-controls\muzey-upload-controls.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-datetime-controls\muzey-datetime-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-datetime-controls\muzey-datetime-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-down-controls\muzey-down-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-down-controls\muzey-down-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-time-controls\muzey-time-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-time-controls\muzey-time-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-upload-controls\muzey-upload-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-upload-controls\muzey-upload-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-date-controls\muzey-date-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-date-controls\muzey-date-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-input-controls\muzey-input-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-input-controls\muzey-input-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-button-controls\muzey-button-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-button-controls\muzey-button-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-pageedit-controls\muzey-pageedit-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-pageedit-controls\muzey-pageedit-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-pagetable-controls\muzey-pagetable-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-pagetable-controls\muzey-pagetable-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-select-controls\muzey-select-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-select-controls\muzey-select-controls.component.ts" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-table-controls\muzey-table-controls.component.html" />
+    <TypeScriptCompile Include="src\shared\muzey-component\muzey-table-controls\muzey-table-controls.component.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="S7.Net">
+      <HintPath>..\..\..\..\..\..\..\科致软件项目\江西爱驰代码\AIWAYSWEB\dll\S7.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Target Name="PrepublishScript" BeforeTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <DistFiles Include="wwwroot\**\*" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>%(DistFiles.Identity)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+  <PropertyGroup>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+</Project>

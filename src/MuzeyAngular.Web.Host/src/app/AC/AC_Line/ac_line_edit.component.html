@@ -1,0 +1,13 @@
+﻿<muzey-pageedit-controls [title]="'线体编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-input-controls [placeholder]="'线体分组'" [(bindVal)]="reqModel.saveData.LineGroup"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'线体编码'" [(bindVal)]="reqModel.saveData.LineCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'线体首位号'" [(bindVal)]="reqModel.saveData.LineName"></muzey-input-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-input-controls [placeholder]="'线体描述'" [(bindVal)]="reqModel.saveData.LineDesc"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'线体中文名称'" [(bindVal)]="reqModel.saveData.LineFullName"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

@@ -1,0 +1,49 @@
+﻿<muzey-pageedit-controls [type]="'multipage'" [title]="'过点记录补录'" [width]="'800'" [height]="'600'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <mat-tab-group>
+        <mat-tab [label]="'基础数据'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'VIN'" [(bindVal)]="reqModel.saveData.VIN"></muzey-input-controls>
+                    <muzey-select-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" [disab]="wsDisable" (bindValChange)="wsValChange($event)"></muzey-select-controls>
+                    <muzey-select-controls [placeholder]="'申报点编码'" [(bindVal)]="reqModel.saveData.ReportID" [options]="rIdOps"></muzey-select-controls>
+                    <muzey-select-controls [placeholder]="'申报类型'" [(bindVal)]="reqModel.saveData.ReportType" [options]="rtOps"></muzey-select-controls>
+                    <div class="col-md-12 none-padding">
+                        <div class="col-md-9 none-padding">
+                            <muzey-date-controls [StyleType]="'Date'" [captionS]="'申报日期'" [(sTime)]="reqModel.saveData.ReportTime"></muzey-date-controls>
+                        </div>
+                        <div class="col-md-3 none-padding">
+                            <muzey-time-controls [placeholder]="'申报时间'" [(bindVal)]="reqModel.reportTime"></muzey-time-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'精确追溯'" *ngIf="reqModel.workShop=='BE'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-4">
+                    <muzey-input-controls [placeholder]="'雪橇号'" [(bindVal)]="reqModel.saveData.SKID"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'Pallet标识号'" [(bindVal)]="reqModel.saveData.PANum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'机舱批次号'" [(bindVal)]="reqModel.saveData.MCNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'前地板批次号'" [(bindVal)]="reqModel.saveData.FFNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'后地板批次号'" [(bindVal)]="reqModel.saveData.RCNum"></muzey-input-controls>
+                </div>
+                <div class="col-md-4">
+                    <muzey-input-controls [placeholder]="'内侧围批次号（左）'" [(bindVal)]="reqModel.saveData.SILNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'内侧围批次号（右）'" [(bindVal)]="reqModel.saveData.SIRNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'外侧围批次号（左）'" [(bindVal)]="reqModel.saveData.SOLNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'外侧围批次号（右）'" [(bindVal)]="reqModel.saveData.SORNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'前扭转盒分总成-左'" [(bindVal)]="reqModel.saveData.FTLNum"></muzey-input-controls>
+                </div>
+                <div class="col-md-4">
+                    <muzey-input-controls [placeholder]="'前扭转盒分总成-右'" [(bindVal)]="reqModel.saveData.FTRNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'减震器座组件-左'" [(bindVal)]="reqModel.saveData.SALNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'减震器座组件-右'" [(bindVal)]="reqModel.saveData.SARNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'后扭转盒组件-左'" [(bindVal)]="reqModel.saveData.RTLNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'后扭转盒组件-右'" [(bindVal)]="reqModel.saveData.RTRNum"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</muzey-pageedit-controls>

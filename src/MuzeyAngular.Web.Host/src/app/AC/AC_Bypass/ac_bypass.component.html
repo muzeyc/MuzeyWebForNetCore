@@ -1,0 +1,23 @@
+﻿<muzey-pagetable-controls [title]="'Bypass记录'">
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('VIN')" [(bindVal)]="reqModel.vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-6">
+                <muzey-date-controls [sTime]="sTime" [eTime]="eTime" (onChange)="dateChange($event)"></muzey-date-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+                <muzey-down-controls [url]="'ACBypass.Export'" [downName]="'Bypass数据.xlsx'" [cols]="cols" [reqModel]="reqModel"></muzey-down-controls>
+                <!--<muzey-button-controls [tem]="'add'" (click)="edit()"></muzey-button-controls>
+                    <muzey-button-controls [tem]="'edit'" (click)="edit(mtc.itemObj.ID)"></muzey-button-controls>
+                    <muzey-button-controls [tem]="'delete'" (click)="delete(mtc.itemObj.ID)"></muzey-button-controls>-->
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

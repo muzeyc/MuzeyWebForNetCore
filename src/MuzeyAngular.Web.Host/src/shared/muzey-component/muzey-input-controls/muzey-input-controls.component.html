@@ -1,0 +1,8 @@
+﻿<div class="col-md-12">
+    <mat-form-field>
+        <input matInput [placeholder]="placeholder" [(ngModel)]="bindVal" name="bindVal" (ngModelChange)="valChange()">
+        <button mat-button *ngIf="bindVal" matSuffix mat-icon-button aria-label="Clear" (click)="bindVal='';valChange()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>

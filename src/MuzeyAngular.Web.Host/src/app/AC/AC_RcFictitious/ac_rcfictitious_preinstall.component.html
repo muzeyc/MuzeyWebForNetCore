@@ -1,0 +1,13 @@
+﻿<muzey-pageedit-controls [title]="'预设'" [width]="'400'" [height]="'300'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-select-controls [placeholder]="l('操作指令')" [(bindVal)]="reqModel.savePreinstallData.State" [options]="sOps" (bindValChange)="rChange($event)"></muzey-select-controls>
+            <muzey-select-controls [placeholder]="l('道号')" [(bindVal)]="reqModel.savePreinstallData.Road" [options]="roOps[reqModel.savePreinstallData.Area]"
+                                   *ngIf="reqModel.savePreinstallData.State == '5' || reqModel.savePreinstallData.State == 'A' || reqModel.savePreinstallData.State == '6'
+                                   || reqModel.savePreinstallData.State == 'B' || reqModel.savePreinstallData.State == 'C'|| reqModel.savePreinstallData.State == 'D' || reqModel.savePreinstallData.State == 'E'"></muzey-select-controls>
+            <muzey-input-controls [placeholder]="'VIN'" [(bindVal)]="reqModel.savePreinstallData.VIN"
+                                  *ngIf="reqModel.savePreinstallData.State != '5' && reqModel.savePreinstallData.State != '6'
+                                  && reqModel.savePreinstallData.State != 'B'&& reqModel.savePreinstallData.State != 'C'&& reqModel.savePreinstallData.State != 'D'&& reqModel.savePreinstallData.State != 'E'"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

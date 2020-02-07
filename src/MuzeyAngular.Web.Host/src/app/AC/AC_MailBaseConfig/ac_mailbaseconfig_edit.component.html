@@ -1,0 +1,9 @@
+﻿<muzey-pageedit-controls [title]="'邮件服务配置编辑'" [width]="'300'" [height]="'300'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'发件人账号密码'" [(bindVal)]="reqModel.saveData.AdresserPwd"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'预警时间(分钟)'" [(bindVal)]="reqModel.saveData.PrecautiousTime"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'推送时间间隔(分钟)'" [(bindVal)]="reqModel.saveData.PushedInterval"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

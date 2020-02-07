@@ -1,0 +1,28 @@
+﻿<muzey-pageedit-controls [type]="'multipage'" [title]="'物料andon配置编辑'" [width]="'700'" [height]="'250'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <mat-tab-group>
+        <mat-tab [label]="'基础数据'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'生产线'" [(bindVal)]="reqModel.saveData.Line"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'工位'" [(bindVal)]="reqModel.saveData.Station"></muzey-input-controls>
+                </div>
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'灯号'" [(bindVal)]="reqModel.saveData.TagID"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'状态'" [(bindVal)]="reqModel.saveData.State"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'地址数据'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'PLC给MQ物料呼叫的OPC地址'" [(bindVal)]="reqModel.saveData.PlcToMqAddressId"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC物料应答的OPC地址'" [(bindVal)]="reqModel.saveData.MqToPlcAnswerAddressId"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC物料送达的OPC地址'" [(bindVal)]="reqModel.saveData.MqToPlcArriveAddressId"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</muzey-pageedit-controls>

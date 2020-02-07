@@ -1,0 +1,17 @@
+﻿<muzey-pageedit-controls [title]="'计划产量编辑'" [width]="'600'" [height]="'400'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-select-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            <muzey-input-controls [placeholder]="'计划产量'" [(bindVal)]="reqModel.saveData.PlanProduct"></muzey-input-controls>
+            <muzey-time-controls [placeholder]="'开始时间'" [(bindVal)]="reqModel.saveData.PlanTimeS"></muzey-time-controls>
+            <muzey-time-controls [placeholder]="'结束时间'" [(bindVal)]="reqModel.saveData.PlanTimeE"></muzey-time-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-date-controls [captionS]="'日期'" [(sTime)]="reqModel.saveData.PlanDate" [StyleType]="'Date'"></muzey-date-controls>
+            <muzey-input-controls [placeholder]="'班次名称'" [(bindVal)]="reqModel.saveData.ShiftrestName"></muzey-input-controls>
+            <muzey-select-controls *ngIf="reqModel.saveData.WorkShop == 'BE'" [placeholder]="'工段'" [(bindVal)]="reqModel.saveData.LineMain" [options]="mOps" (bindValChange)="mainLineChange($event)"></muzey-select-controls>
+            <muzey-select-controls *ngIf="reqModel.saveData.WorkShop == 'BE'" [placeholder]="'分线'" [(bindVal)]="reqModel.saveData.LineBranch" [options]="bOps"></muzey-select-controls>
+            <muzey-input-controls *ngIf="reqModel.saveData.WorkShop == 'BE'" [placeholder]="'车型'" [(bindVal)]="reqModel.saveData.CarType"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

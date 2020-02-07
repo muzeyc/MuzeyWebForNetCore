@@ -1,0 +1,8 @@
+﻿<muzey-pageedit-controls [title]="'部门编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'部门编码'" [(bindVal)]="reqModel.saveData.DepartmentCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'部门名称'" [(bindVal)]="reqModel.saveData.DepartmentName"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

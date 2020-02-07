@@ -1,0 +1,13 @@
+﻿<muzey-pageedit-controls [title]="'详细信息'" [width]="width" [height]="'800'" [SaveShow]="false" (onCloseClick)="close(false)">
+    <div class="row-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <muzey-input-controls [placeholder]="l('过滤')" [(bindVal)]="filter"></muzey-input-controls>
+            </div>
+            <div class="col-md-6 text-right">
+                <muzey-button-controls [tem]="'search'" (click)="getDataPage(-1)"></muzey-button-controls>
+            </div>
+        </div>
+            <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" [id]="'child'" (pageChange)="getDataPage($event)"></muzey-table-controls>
+        </div>
+</muzey-pageedit-controls>

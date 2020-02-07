@@ -1,0 +1,10 @@
+﻿<muzey-pageedit-controls [title]="'收件人配置编辑'" [width]="'400'" [height]="'350'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'收件人地址'" [(bindVal)]="reqModel.saveData.Adressee"></muzey-input-controls>
+            <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" (bindValChange)="wsChange($event)"></muzey-select-controls>
+            <muzey-select-controls [placeholder]="'报警类型'" [(bindVal)]="reqModel.saveData.AlarmTypeCode" [options]="atOps"></muzey-select-controls>
+            <muzey-select-controls [placeholder]="'发送类型'" [(bindVal)]="reqModel.saveData.AdresseeState" [options]="asOps"></muzey-select-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

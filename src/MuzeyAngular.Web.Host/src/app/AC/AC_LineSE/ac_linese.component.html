@@ -1,0 +1,46 @@
+﻿<muzey-pagetable-controls [title]="'上下线统计'">
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable" (bindValChange)="wsChange($event)"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('产线')" [(bindVal)]="reqModel.line" [options]="lineOps[reqModel.workShop]" (bindValChange)="mtc.pageChangeSub(1)"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('订单类型')" [(bindVal)]="reqModel.orderType"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-datetime-controls placeholder="过点时间(起)" [(bindVal)]="reqModel.sTime"></muzey-datetime-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-datetime-controls placeholder="过点时间(止)" [(bindVal)]="reqModel.eTime"></muzey-datetime-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('订单号')" [(bindVal)]="reqModel.orderNum"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('VIN')" [(bindVal)]="reqModel.vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('流水号')" [(bindVal)]="reqModel.serialNumber"></muzey-input-controls>
+            </div>
+            <!--<div class="col-md-4">
+        <muzey-date-controls (onChange)="dateChange($event)"></muzey-date-controls>
+    </div>-->
+            <!--<div class="col-md-4">
+        <muzey-input-controls [placeholder]="l('产线名称')" [(bindVal)]="reqModel.lineName"></muzey-input-controls>
+    </div>-->
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('车型')" [(bindVal)]="reqModel.wsCarType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2" *ngIf="reqModel.workShop=='BE'">
+                <muzey-input-controls [placeholder]="l('白车身选配码')" [(bindVal)]="reqModel.bodySelCode"></muzey-input-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

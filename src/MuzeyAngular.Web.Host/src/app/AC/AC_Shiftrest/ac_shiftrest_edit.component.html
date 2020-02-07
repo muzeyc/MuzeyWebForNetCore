@@ -1,0 +1,15 @@
+﻿<muzey-pageedit-controls [title]="'班次休息编辑'" [width]="'600'" [height]="'270'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-select-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            <muzey-date-controls [captionS]="'生产日期'" [(sTime)]="reqModel.saveData.WorkDay" [StyleType]="'Date'"></muzey-date-controls>
+            <muzey-input-controls [placeholder]="'班次名'" [(bindVal)]="reqModel.saveData.ShiftName"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'休息类别'" [(bindVal)]="reqModel.saveData.RestName"></muzey-input-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-time-controls [placeholder]="'休息开始时间'" [(bindVal)]="reqModel.saveData.BeginTime"></muzey-time-controls>
+            <muzey-time-controls [placeholder]="'休息结束时间'" [(bindVal)]="reqModel.saveData.EndTime"></muzey-time-controls>
+            <muzey-select-controls [placeholder]="l('是否跨天')" [(bindVal)]="reqModel.saveData.CrossDay" [options]="cdOps"></muzey-select-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

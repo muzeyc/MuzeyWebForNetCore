@@ -1,0 +1,10 @@
+﻿<muzey-pageedit-controls [title]="'设备类型编辑'" [width]="'500'" [height]="'300'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'设备类型编码'" [(bindVal)]="reqModel.saveData.DeviceTypeCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'设备类型名称'" [(bindVal)]="reqModel.saveData.DeviceTypeName"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'设备类型描述'" [(bindVal)]="reqModel.saveData.DeviceTypeDesc"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'备注/预留'" [(bindVal)]="reqModel.saveData.Remarks"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

@@ -1,0 +1,9 @@
+﻿<muzey-pageedit-controls [title]="'工位编辑'" [width]="'400'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'工位编码'" [(bindVal)]="reqModel.saveData.StationCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'线体编码'" [(bindVal)]="reqModel.saveData.LineCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'工位名称'" [(bindVal)]="reqModel.saveData.StationName"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

@@ -1,0 +1,7 @@
+﻿<muzey-pageedit-controls [title]="'Bypass记录编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'Bypass记录编码'" [(bindVal)]="reqModel.saveData.ID"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

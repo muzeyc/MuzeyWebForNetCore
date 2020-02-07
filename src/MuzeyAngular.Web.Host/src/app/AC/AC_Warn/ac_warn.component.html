@@ -1,0 +1,26 @@
+<muzey-pagetable-controls [title]="title" [sameRef]="true">
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable" (bindValChange)="wsChange($event)"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('报警系统')" [(bindVal)]="reqModel.systemTypeCode" [options]="stOps"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('设备类型')" [(bindVal)]="reqModel.deviceTypeCode" [options]="dtOps"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('报警类型')" [(bindVal)]="reqModel.alarmTypeCode" [options]="atOps"></muzey-select-controls>
+            </div>
+            <div class="col-md-4">
+                <muzey-date-controls [sTime]="sTime" [eTime]="eTime" (onChange)="dateChange($event)"></muzey-date-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+                <muzey-down-controls [url]="'ACWarn.Export'" [downName]="'报警数据.xlsx'" [cols]="cols" [reqModel]="reqModel"></muzey-down-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

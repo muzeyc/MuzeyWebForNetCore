@@ -1,0 +1,8 @@
+﻿<div class="col-md-12 none-padding">
+    <div class="col-md-7 none-padding">
+        <muzey-date-controls [StyleType]="'Date'" [captionS]="placeholder" [(sTime)]="date" (sTimeChange)="dateValChange($event)"></muzey-date-controls>
+    </div>
+    <div class="col-md-5 none-padding">
+        <muzey-time-controls [placeholder]="''" [(bindVal)]="time" (bindValChange)="timeValChange($event)"></muzey-time-controls>
+    </div>
+</div>

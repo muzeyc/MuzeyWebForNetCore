@@ -1,0 +1,10 @@
+﻿<muzey-pageedit-controls [title]="'报警系统编辑'" [width]="'500'" [height]="'300'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'系统类型编码'" [(bindVal)]="reqModel.saveData.SystemTypeCode"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'系统类型名称'" [(bindVal)]="reqModel.saveData.SystemTypeName"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'系统类型描述'" [(bindVal)]="reqModel.saveData.SystemTypeDesc"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'备注/预留'" [(bindVal)]="reqModel.saveData.Remarks"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

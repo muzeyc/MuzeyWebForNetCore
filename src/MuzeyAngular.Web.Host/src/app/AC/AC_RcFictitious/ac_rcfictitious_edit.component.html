@@ -1,0 +1,13 @@
+﻿<muzey-pageedit-controls [title]="'队列编辑'" [width]="'600'" [height]="'600'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-select-controls [placeholder]="l('车道')" [(bindVal)]="reqModel.saveData.Road" [options]="roOps[reqModel.saveData.Area]"></muzey-select-controls>
+            <muzey-select-controls [placeholder]="l('位号')" [(bindVal)]="reqModel.saveData.Place" [options]="plOps[reqModel.saveData.Area]"></muzey-select-controls>
+            <muzey-input-controls [placeholder]="'VIN'" [(bindVal)]="reqModel.saveData.VIN"></muzey-input-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-select-controls [placeholder]="'状态'" [(bindVal)]="reqModel.saveData.State" [options]="sOps"></muzey-select-controls>
+            <muzey-input-controls [placeholder]="'入车顺序号'" [(bindVal)]="reqModel.saveData.Seq"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

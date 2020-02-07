@@ -1,0 +1,8 @@
+﻿<input #fileInput type="file" (change)="selectedFileOnChanged($event,_service)" style="display:none"/>
+<button mat-raised-button color="primary"
+        [style.margin-left]="'10px'"
+        [style.padding-left]="'9.5px'"
+        [style.background-color]="'#9C27B0'"
+        (click)="uploadFile()">
+    <mat-icon>cloud_upload</mat-icon><span>{{txt}}</span>
+</button>

@@ -1,0 +1,43 @@
+﻿<muzey-pagetable-controls [title]="'分线计划管理'">
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('产线')" [(bindVal)]="reqModel.lineCode" [options]="lineOps" (bindValChange)="mtc.pageChangeSub(1)"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('订单类型')" [(bindVal)]="reqModel.orderType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('流水号')" [(bindVal)]="reqModel.serialNumber"></muzey-input-controls>
+            </div>
+            <div class="col-md-4">
+                <muzey-date-controls [captionS]="'MES下发时间(起)'" [captionE]="'MES下发时间(止)'" [sTime]="sTime" [eTime]="eTime" (onChange)="dateChange($event)"></muzey-date-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('订单号')" [(bindVal)]="reqModel.orderNum"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('VIN')" [(bindVal)]="reqModel.vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('焊装车型码')" [(bindVal)]="reqModel.beCarType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('白车身选配码')" [(bindVal)]="reqModel.bodySelCode"></muzey-input-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('完工状态')" [(bindVal)]="reqModel.workDone" [options]="wdOps"></muzey-select-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+                <muzey-button-controls [txt]="'完工标记'" [icon]="'touch_app'" [color]="'#E91E63'" (click)="workDone()" *ngIf="reqModel.lineCode"></muzey-button-controls>
+                <muzey-upload-controls [txt]="'导入'" (aftUpload)="batAddData($event)" *ngIf="reqModel.lineCode"></muzey-upload-controls>
+                <muzey-down-controls [url]="'ACLinePlanMQ.Export'" [downName]="'分线计划.xlsx'" [cols]="cols" [reqModel]="reqModel"></muzey-down-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

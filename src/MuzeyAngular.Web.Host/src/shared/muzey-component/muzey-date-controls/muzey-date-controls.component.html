@@ -1,0 +1,20 @@
+﻿<div [ngClass]="{'col-md-6': StyleType=='SE_Date', 'col-md-12': StyleType=='Date'}">
+    <mat-form-field>
+        <input matInput [matDatepicker]="dpS" [placeholder]="captionS" [(ngModel)]="sTime" name="sTime" (ngModelChange)="sValChange()" (dateChange)="dateOnChange('s', $event)">
+        <button mat-button *ngIf="sTime" matSuffix mat-icon-button aria-label="Clear" (click)="sTime='';dateOnChange('s', null)">
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-datepicker-toggle matSuffix [for]="dpS"></mat-datepicker-toggle>
+        <mat-datepicker #dpS></mat-datepicker>
+    </mat-form-field>
+</div>
+<div class="col-md-6" *ngIf="StyleType=='SE_Date'">
+    <mat-form-field>
+        <input matInput [matDatepicker]="dpE" [placeholder]="captionE" [(ngModel)]="eTime" name="eTime" (ngModelChange)="eValChange()" (dateChange)="dateOnChange('e', $event)">
+        <button mat-button *ngIf="eTime" matSuffix mat-icon-button aria-label="Clear" (click)="eTime='';dateOnChange('e', null)">
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-datepicker-toggle matSuffix [for]="dpE"></mat-datepicker-toggle>
+        <mat-datepicker #dpE></mat-datepicker>
+    </mat-form-field>
+</div>

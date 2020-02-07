@@ -1,0 +1,16 @@
+﻿<muzey-pagetable-controls [title]="'冲压单批次管理'">
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            </div>
+            <div class="col-md-9">
+                <muzey-input-controls [placeholder]="l('冲压单批次')" [(bindVal)]="reqModel.productionNumber"></muzey-input-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

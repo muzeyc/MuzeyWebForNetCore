@@ -1,0 +1,41 @@
+﻿<muzey-pagetable-controls [title]="'离线车辆管理'">
+    <form>
+        <div class="row">
+            <div class="col-md-2">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable" (bindValChange)="wsChange($event)"></muzey-select-controls>
+            </div>
+            <div class="col-md-2">
+                <muzey-input-controls [placeholder]="l('订单类型')" [(bindVal)]="reqModel.orderType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2" *ngIf="QcosShow">
+                <muzey-input-controls [placeholder]="l('总装车型码')" [(bindVal)]="reqModel.aeCarType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2" *ngIf="!QcosShow">
+                <muzey-input-controls [placeholder]="l('焊装车型码')" [(bindVal)]="reqModel.beCarType"></muzey-input-controls>
+            </div>
+            <div class="col-md-2" *ngIf="!QcosShow">
+                <muzey-input-controls [placeholder]="l('白车身选配码')" [(bindVal)]="reqModel.bodySelCode"></muzey-input-controls>
+            </div>
+            <div class="col-md-4">
+                <muzey-date-controls [sTime]="sTime" [eTime]="eTime" (onChange)="dateChange($event)"></muzey-date-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('订单号')" [(bindVal)]="reqModel.orderNum"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('VIN')" [(bindVal)]="reqModel.vin"></muzey-input-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('流水号')" [(bindVal)]="reqModel.serialNumber"></muzey-input-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+                <!--<muzey-button-controls [txt]="'标记新增'" [icon]="'add_alert'" [color]="'#5599FF'" (click)="changeState(mtc.itemObj.ID,'A')"></muzey-button-controls>
+        <muzey-button-controls [txt]="'标记修改'" [icon]="'g_translate'" [color]="'#FFBB00'" (click)="changeState(mtc.itemObj.ID,'C')"></muzey-button-controls>
+        <muzey-button-controls [txt]="'标记删除'" [icon]="'shuffle'" [color]="'#FF0088 '" (click)="changeState(mtc.itemObj.ID,'D')"></muzey-button-controls>-->
+                <muzey-button-controls [txt]="'标记报废'" [icon]="'donut_small'" [color]="'#AAAAAA'" (click)="changeState(mtc.itemObj.ID,'E')"></muzey-button-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols[reqModel.workShop]" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

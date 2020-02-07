@@ -1,0 +1,9 @@
+﻿<h1 mat-dialog-title>{{title}}</h1>
+<mat-dialog-content [style.width]="width + 'px'" [style.height]="height + 'px'">
+    <ng-content *ngIf="type == 'single'" select=".row-fluid"></ng-content>
+    <ng-content *ngIf="type == 'multipage'" select="mat-tab-group"></ng-content>
+</mat-dialog-content>
+<div mat-dialog-actions align="end">
+    <muzey-button-controls [tem]="'cancel'" (click)="onCloseClick.emit()"></muzey-button-controls>
+    <muzey-button-controls *ngIf="SaveShow" [tem]="'save'" (click)="onSaveClick.emit()"></muzey-button-controls>
+</div>

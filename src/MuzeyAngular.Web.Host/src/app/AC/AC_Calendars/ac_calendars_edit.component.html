@@ -1,0 +1,13 @@
+﻿<muzey-pageedit-controls [title]="'生产日历编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-6">
+            <muzey-select-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            <muzey-date-controls [captionS]="'生产日期'" [(sTime)]="reqModel.saveData.WorkDay" [StyleType]="'Date'"></muzey-date-controls>
+            <muzey-input-controls [placeholder]="'班次名'" [(bindVal)]="reqModel.saveData.ShiftName"></muzey-input-controls>
+        </div>
+        <div class="col-md-6">
+            <muzey-time-controls [placeholder]="'班次开始时间'" [(bindVal)]="reqModel.saveData.BeginTime"></muzey-time-controls>
+            <muzey-time-controls [placeholder]="'班次结束时间'" [(bindVal)]="reqModel.saveData.EndTime"></muzey-time-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

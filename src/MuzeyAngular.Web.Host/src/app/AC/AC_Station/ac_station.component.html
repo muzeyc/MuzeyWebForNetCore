@@ -1,0 +1,19 @@
+<muzey-pagetable-controls [title]="'工位管理'">
+    <form>
+        <div class="row">
+            <div class="col-md-3">
+                <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.workShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+            </div>
+            <div class="col-md-3">
+                <muzey-input-controls [placeholder]="l('工位')" [(bindVal)]="reqModel.stationName"></muzey-input-controls>
+            </div>
+            <div class="col-md-12 text-right p-r-25">
+                <muzey-button-controls [tem]="'search'" (click)="mtc.pageChangeSub(1)"></muzey-button-controls>
+                <muzey-button-controls [tem]="'add'" (click)="edit()"></muzey-button-controls>
+                <muzey-button-controls [tem]="'edit'" (click)="edit(mtc.itemObj.ID)"></muzey-button-controls>
+                <muzey-button-controls [tem]="'delete'" (click)="delete(mtc.itemObj.ID)"></muzey-button-controls>
+            </div>
+        </div>
+    </form>
+    <muzey-table-controls #mtc [cols]="cols" [datas]="datas" [totalCount]="totalCount" (pageChange)="getDataPage($event)"></muzey-table-controls>
+</muzey-pagetable-controls>

@@ -1,0 +1,8 @@
+﻿<muzey-pageedit-controls [title]="'欢迎词配置编辑'" [width]="'600'" [height]="'200'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            <muzey-input-controls [placeholder]="'中文'" [(bindVal)]="reqModel.saveData.Chinese"></muzey-input-controls>
+            <muzey-input-controls [placeholder]="'英文'" [(bindVal)]="reqModel.saveData.English"></muzey-input-controls>
+        </div>
+    </div>
+</muzey-pageedit-controls>

@@ -1,0 +1,121 @@
+﻿<muzey-pageedit-controls [type]="'multipage'" [title]="'过点OPC地址编辑'" [width]="wd" [height]="'500'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <mat-tab-group *ngIf="reqModel.workShop=='AE'">
+        <mat-tab [label]="'基础数据'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'配置文件一级类别'" [(bindVal)]="reqModel.saveData.TopCategory"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'配置文件二级类别'" [(bindVal)]="reqModel.saveData.Reclassify"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'生产线'" [(bindVal)]="reqModel.saveData.Line"></muzey-input-controls>
+                </div>
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'工位'" [(bindVal)]="reqModel.saveData.Station"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'线体类型'" [(bindVal)]="reqModel.saveData.LineType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'关键点类型'" [(bindVal)]="reqModel.saveData.KeyPoint"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'备注'" [(bindVal)]="reqModel.saveData.Remarks"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'PLC给MQ地址'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'PLC给MQ的OPC信号地址1'" [(bindVal)]="reqModel.saveData.PlcToMqSignal1"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC给MQ的OPC信号地址2'" [(bindVal)]="reqModel.saveData.PlcToMqSignal2"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC给MQ的OPC信号地址3'" [(bindVal)]="reqModel.saveData.PlcToMqSignal3"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC给MQ值信息的OPC信号地址1'" [(bindVal)]="reqModel.saveData.PlcToMqValue1"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC给MQ值信息的OPC信号地址2'" [(bindVal)]="reqModel.saveData.PlcToMqValue2"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC给MQ值信息的OPC信号地址3'" [(bindVal)]="reqModel.saveData.PlcToMqValue3"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'MQ给PLC地址'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'MQ给PLC的信号地址1'" [(bindVal)]="reqModel.saveData.MqToPlcSignal1"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC的信号地址2'" [(bindVal)]="reqModel.saveData.MqToPlcSignal2"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC的信号地址3'" [(bindVal)]="reqModel.saveData.MqToPlcSignal3"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC值信息的信号地址1'" [(bindVal)]="reqModel.saveData.MqToPlcValue1"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC值信息的信号地址2'" [(bindVal)]="reqModel.saveData.MqToPlcValue2"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MQ给PLC值信息的信号地址3'" [(bindVal)]="reqModel.saveData.MqToPlcValue3"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+    <mat-tab-group *ngIf="reqModel.workShop=='BE'">
+        <mat-tab [label]="'基础数据'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'车间'" [(bindVal)]="reqModel.saveData.WorkShop"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'配置文件类别'" [(bindVal)]="reqModel.saveData.ConfigType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'生产线'" [(bindVal)]="reqModel.saveData.Line"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'工位'" [(bindVal)]="reqModel.saveData.Station"></muzey-input-controls>
+                </div>
+                <div class="col-md-6">
+                    <muzey-input-controls [placeholder]="'线体类型'" [(bindVal)]="reqModel.saveData.LineType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'关键点类型'" [(bindVal)]="reqModel.saveData.KeyPoint"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'备注'" [(bindVal)]="reqModel.saveData.Remarks"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'地址配置1'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'心跳信号'" [(bindVal)]="reqModel.saveData.PlcToMqHeart"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC申报请求'" [(bindVal)]="reqModel.saveData.PlcToMqRequest"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'MES校验结果'" [(bindVal)]="reqModel.saveData.MqToPlcResult"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'PLC接收MES结果完成'" [(bindVal)]="reqModel.saveData.PlcToMqReceivedFinish"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'分总成号'" [(bindVal)]="reqModel.saveData.PlcToMqPartNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'申报类型'" [(bindVal)]="reqModel.saveData.PlcToMqReportType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'订单号'" [(bindVal)]="reqModel.saveData.PlcToMqOrderNum"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'地址配置2'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'订单类型'" [(bindVal)]="reqModel.saveData.PlcToMqOrderType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'VIN码'" [(bindVal)]="reqModel.saveData.PlcToMqVIN"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'焊装车型码'" [(bindVal)]="reqModel.saveData.PlcToMqCarType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'车身用途'" [(bindVal)]="reqModel.saveData.PlcToMqCarFun"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'白车身选配码'" [(bindVal)]="reqModel.saveData.PlcToMqConType"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'焊装流水号'" [(bindVal)]="reqModel.saveData.PlcToMqLSH"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'前地板批次号'" [(bindVal)]="reqModel.saveData.PlcToMqFFNum"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'地址配置3'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'前扭转盒分总成-左'" [(bindVal)]="reqModel.saveData.PlcToMqFTLNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'前扭转盒分总成-右'" [(bindVal)]="reqModel.saveData.PlcToMqFTRNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'机舱批次号'" [(bindVal)]="reqModel.saveData.PlcToMqMCNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'后地板批次号'" [(bindVal)]="reqModel.saveData.PlcToMqRCNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'雪橇号'" [(bindVal)]="reqModel.saveData.PlcToMqSkidNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'Pallet标识号'" [(bindVal)]="reqModel.saveData.PlcToMqPANum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'后扭转盒组件-左'" [(bindVal)]="reqModel.saveData.PlcToMqRTLNum"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'地址配置4'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'后扭转盒组件-右'" [(bindVal)]="reqModel.saveData.PlcToMqRTRNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'减震器座组件-左'" [(bindVal)]="reqModel.saveData.PlcToMqSALNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'减震器座组件-右'" [(bindVal)]="reqModel.saveData.PlcToMqSARNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'内侧围批次号（左）'" [(bindVal)]="reqModel.saveData.PlcToMqSILNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'内侧围批次号（右）'" [(bindVal)]="reqModel.saveData.PlcToMqSIRNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'外侧围批次号（左）'" [(bindVal)]="reqModel.saveData.PlcToMqSOLNum"></muzey-input-controls>
+                    <muzey-input-controls [placeholder]="'外侧围批次号（右）'" [(bindVal)]="reqModel.saveData.PlcToMqSORNum"></muzey-input-controls>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</muzey-pageedit-controls>

@@ -1,0 +1,30 @@
+﻿<muzey-pageedit-controls [type]="'multipage'" [title]="'人员编辑'" [width]="'700'" [height]="'600'" (onCloseClick)="close(false)" (onSaveClick)="save()">
+    <mat-tab-group>
+        <mat-tab [label]="'关联信息'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-input-controls [placeholder]="'名字'" [(bindVal)]="reqModel.saveData.PersonName"></muzey-input-controls>
+                    <muzey-select-controls [placeholder]="l('工厂')" [(bindVal)]="reqModel.saveData.Factory" [options]="fOps" [disab]="wsDisable"></muzey-select-controls>
+                    <muzey-select-controls [placeholder]="l('车间')" [(bindVal)]="reqModel.saveData.WorkShop" [options]="wsOps" [disab]="wsDisable"></muzey-select-controls>
+                    <muzey-select-controls [placeholder]="l('账号')" [(bindVal)]="reqModel.saveData.UserId" [options]="aOps"></muzey-select-controls>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab [label]="'权限信息'">
+            <br />
+            <div class="row-fluid">
+                <div class="col-md-12">
+                    <muzey-select-controls [placeholder]="l('基础权限')" [(bindVal)]="reqModel.saveData.PermissionType" [options]="pOps"></muzey-select-controls>
+                </div>
+                <div class="col-md-4" *ngFor="let vs of reqModel.Views.childItems; let i=index">
+                    <div class="checkbox-wrapper" *ngFor="let v of vs.childItems; let j=index">
+                        <mat-checkbox [(ngModel)]="reqModel.Views.childItems[i].childItems[j].selected" *ngIf="(reqModel.saveData.PermissionType != 0) && (reqModel.saveData.PermissionType != 3) && (reqModel.saveData.PermissionType != 4)">
+                            {{v.name}}
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</muzey-pageedit-controls>
